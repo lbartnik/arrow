@@ -31,3 +31,5 @@ configure_file(arrow-orc.pc.in
 install(
   FILES "${CMAKE_CURRENT_BINARY_DIR}/arrow-orc.pc"
   DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
+
+ADD_ARROW_TEST(reader-test)
