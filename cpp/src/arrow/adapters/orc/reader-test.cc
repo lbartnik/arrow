@@ -23,6 +23,7 @@
 
 #include "adapter.h"
 #include "arrow/io/file.h"
+#include "arrow/test-util.h"
 
 namespace arrow {
 
@@ -33,10 +34,14 @@ namespace orc {
 TEST(adapter, EmptyFile) {
   const std::string path = "TestOrcFile.emptyFile.orc";
   std::shared_ptr<io::ReadableFile> file;
-  io::ReadableFile::Open(path, &file);
+  ASSERT_OK(io::ReadableFile::Open(path, &file));
 
   std::unique_ptr<ORCFileReader> reader;
-  ORCFileReader::Open(file, default_memory_pool(), &reader);
+  ASSERT_OK(ORCFileReader::Open(file, default_memory_pool(), &reader));
+
+  std::shared_ptr<Table> table;
+  ASSERT_OK(reader->Read(&table));
+
 }
 
 }  // namespace orc

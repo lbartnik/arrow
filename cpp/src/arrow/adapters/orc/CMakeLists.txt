@@ -33,3 +33,4 @@ install(
   DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig/")
 
 ADD_ARROW_TEST(reader-test)
+#ADD_ARROW_TEST_DEPENDENCIES(reader-test TestOrcFile.emptyFile.orc)
