@@ -24,8 +24,9 @@ cmake -DCMAKE_BUILD_TYPE=$ARROW_BUILD_TYPE \
       -DARROW_PYTHON=on \
       -DARROW_PLASMA=on \
       -DARROW_ORC=on \
-      -DARROW_BUILD_TESTS=OFF \
+      -DARROW_BUILD_TESTS=ON \
       -DCMAKE_CXX_FLAGS=$CXXFLAGS \
+      -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
       -GNinja \
       ..
 ninja

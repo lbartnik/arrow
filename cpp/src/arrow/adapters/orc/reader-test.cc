@@ -22,6 +22,7 @@
 #include <gtest/gtest.h>
 
 #include "adapter.h"
+#include "arrow/io/file.h"
 
 namespace arrow {
 
@@ -31,7 +32,7 @@ namespace orc {
 
 TEST(adapter, EmptyFile) {
   const std::string path = "TestOrcFile.emptyFile.orc";
-  std::shared_ptr<io::ReadableFileInterface> file;
+  std::shared_ptr<io::ReadableFile> file;
   io::ReadableFile::Open(path, &file);
 
   std::unique_ptr<ORCFileReader> reader;
